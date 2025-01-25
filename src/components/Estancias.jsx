@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { fetchData } from "../Data/Fetch";
+
 
 export default function Estancias({ data, setData, search }) {
   return (
     <>
-      <div className="mt-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="mt-9 grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {data &&
           data?.map((location) => (
-            <div className=" flex flex-col justify-center items-start align-top ">
+            <div key={location.city} className=" flex flex-col justify-center items-center align-top ">
               <img
                 key={location.city}
                 className="rounded-3xl w-[350px] h-[238px] object-cover"
@@ -15,6 +15,7 @@ export default function Estancias({ data, setData, search }) {
                 alt={location.title}
               />
               <div
+              key={location.superHost}
                 className={` ${
                   location.superHost && "gap-11"
                 } flex items-center gap-40   w-auto   pt-2`}
