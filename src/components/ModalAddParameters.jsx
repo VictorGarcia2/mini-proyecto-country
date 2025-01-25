@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+import CounterAdults from "./utils/CounterAdults";
+import CounterGuests from "./utils/CounterGuests";
 
-import CounterA from "./utils/CounterAdults";
 export default function ModalAddParameters({ modal, onClose }) {
- 
-    const [openAddGuests, setAddGuests] = useState(true);
-      const toggleModalGuests = () => setAddGuests(!openAddGuests);
-      const { count, increment, decrement } = CounterA();
-
-      
+  const [openAddGuests, setAddGuests] = useState(true);
+  const toggleModalGuests = () => setAddGuests(!openAddGuests);
+  const { countAdults, incrementAdults, decrementAdults } = CounterAdults();
+  const { countGuests, incrementGuests, decrementGuests } = CounterGuests();
 
   return (
     <div className={modal && "hidden"}>
@@ -35,27 +34,36 @@ export default function ModalAddParameters({ modal, onClose }) {
           </div>
           <div className="px-4 border-r-4  border-y-4  flex flex-col ">
             <div onClick={toggleModalGuests}>
-
-            <label
-              htmlFor=""
-              className="py-2 font-montserrat font-bold text-sm "
-            >
-              GUESTS
-            </label>
-            <p className="font-montserrat text-gray-400 w-32 cursor-pointer py-2">
-              Guests
-            </p>
+              <label
+                htmlFor=""
+                className="py-2 font-montserrat font-bold text-sm "
+              >
+                GUESTS
+              </label>
+              <p className="font-montserrat text-gray-400 w-32 cursor-pointer py-2">
+                Guests
+              </p>
             </div>
-            <div className={`flex flex-col items-center  absolute font-montserrat ${openAddGuests && "hidden"}  w-[10.1rem] pb-4 -mx-4 mt-20 border-2 bg-white shadow-md`}>
+            <div
+              className={`flex flex-col items-center  absolute font-montserrat ${
+                openAddGuests && "hidden"
+              }  w-[10.1rem] pb-4 -mx-4 mt-20 border-2 bg-white shadow-md`}
+            >
               <div className="flex flex-col items-start justify-center gap-4 mt-10">
                 <p className="font-bold">Adults</p>
                 <p className="font-medium">Ages 13 or above</p>
                 <div className="flex items-center gap-4">
-                  <button className="rounded-lg border-2  p-2 w-11 h-auto"  onClick={decrement}>
+                  <button
+                    className="rounded-lg border-2  p-2 w-11 h-auto"
+                    onClick={decrementAdults}
+                  >
                     -
                   </button>
-                  <p>{count}</p>
-                  <button className="rounded-lg border-2  p-2 w-11 h-auto" onClick={increment}>
+                  <p>{countAdults}</p>
+                  <button
+                    className="rounded-lg border-2  p-2 w-11 h-auto"
+                    onClick={incrementAdults}
+                  >
                     +
                   </button>
                 </div>
@@ -64,18 +72,27 @@ export default function ModalAddParameters({ modal, onClose }) {
                 <p className="font-bold">Adults</p>
                 <p className="font-medium">Ages 13 or above</p>
                 <div className="flex items-center gap-4">
-                  <button className="rounded-lg border-2  p-2 w-11 h-auto" onClick={decrement}>
+                  <button
+                    className="rounded-lg border-2  p-2 w-11 h-auto"
+                    onClick={decrementGuests}
+                  >
                     -
                   </button>
-                  <p>{count}</p>
-                  <button className="rounded-lg border-2  p-2 w-11 h-auto" onClick={increment}>
+                  <p>{countGuests}</p>
+                  <button
+                    className="rounded-lg border-2  p-2 w-11 h-auto"
+                    onClick={incrementGuests}
+                  >
                     +
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <div className=" px-4 border-r-4  border-y-4  flex items-center rounded-e-full bg-[#eb5757]  hover:bg-white [&>p]:hover:text-[#eb5757]  cursor-pointer">
+          <div className=" px-4 border-r-4  border-y-4  flex items-center rounded-e-full bg-[#eb5757]  hover:bg-white [&>p]:hover:text-[#eb5757]  cursor-pointer
+          "
+              onClick={onClose}
+          >
             <img className="" src="icons/searchicon.svg" alt="" />
             <p className="text-white ">Search</p>
           </div>

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-export default function CounterA() {
-    const [count, setCount] = useState(0);
-    const increment = () => setCount(count + 1);
-    const decrement = () => setCount(count - 1);
-    if (count < 0) {
-        setCount(0);
+export default function CounterGuests() {
+    const [countGuests, setCountGuests] = useState(0);
+    const incrementGuests = () => setCountGuests(countGuests + 1);
+    const decrementGuests = () => setCountGuests(countGuests - 1);
+    if (countGuests < 0) {
+        setCountGuests(0);
     }
     return {
-        count, increment, decrement
+        countGuests, incrementGuests, decrementGuests
     }
 
 }

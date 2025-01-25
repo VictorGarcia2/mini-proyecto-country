@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-export default function CounterA() {
-    const [count, setCount] = useState(0);
-    const increment = () => setCount(count + 1);
-    const decrement = () => setCount(count - 1);
-    if (count < 0) {
-        setCount(0);
+export default function CounterAdults() {
+    const [countAdults, setCountAdults] = useState(0);
+    const incrementAdults = () => setCountAdults(countAdults + 1);
+    const decrementAdults = () => setCountAdults(countAdults - 1);
+    if (countAdults < 0) {
+        setCountAdults(0);
     }
     return {
-        count, increment, decrement
+        countAdults, incrementAdults, decrementAdults
     }
 
 }
