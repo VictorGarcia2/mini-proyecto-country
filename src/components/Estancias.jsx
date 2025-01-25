@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchData } from "../Data/Fetch";
 
-export default function Estancias() {
-  const [data, setData] = useState([]);
-  console.log(data);
-
-  useEffect(() => {
-    fetchData("data.json").then((response) => setData(response));
-  }, []);
-
+export default function Estancias({ data, setData, search }) {
   return (
     <>
       <div className="mt-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -21,10 +14,18 @@ export default function Estancias() {
                 src={location.photo}
                 alt={location.title}
               />
-              <div className={` ${location.superHost && "gap-11"} flex items-center gap-40   w-auto   pt-2`}>
-                <p 
-                className={`${!location.superHost && "hidden"} border-[1px] border-gray-500 px-3  py-1 text-xs font-montserrat rounded-full text-gray-500`}
-                >SUPERHOST</p>
+              <div
+                className={` ${
+                  location.superHost && "gap-11"
+                } flex items-center gap-40   w-auto   pt-2`}
+              >
+                <p
+                  className={`${
+                    !location.superHost && "hidden"
+                  } border-[1px] border-gray-500 px-3  py-1 text-xs font-montserrat rounded-full text-gray-500`}
+                >
+                  SUPERHOST
+                </p>
                 <h3 className="font-thin text-gray-500 text-xs w-28 font-mulish ">
                   {location.type}. {location.beds} beds
                 </h3>

@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import CounterAdults from "./utils/CounterAdults";
 import CounterGuests from "./utils/CounterGuests";
 
-export default function ModalAddParameters({ modal, onClose }) {
+export default function ModalAddParameters({
+  modal,
+  onClose,
+  search,
+  setSearch,
+  handleSubmit,
+  setCountGuest,
+}) {
   const [openAddGuests, setAddGuests] = useState(true);
   const toggleModalGuests = () => setAddGuests(!openAddGuests);
   const { countAdults, incrementAdults, decrementAdults } = CounterAdults();
   const { countGuests, incrementGuests, decrementGuests } = CounterGuests();
+
+  setCountGuest(countGuests + countAdults);
 
   return (
     <div className={modal && "hidden"}>
@@ -18,29 +27,31 @@ export default function ModalAddParameters({ modal, onClose }) {
           X
         </p>
         <div className="flex mt-10 ">
-          <div className="px-9 border-l-4 border-r-2 border-y-4 rounded-s-full flex flex-col ">
+          <div className="px-9 border-l-4 border-r-2 border-y-4 rounded-s-full flex flex-col w-40">
             <label
               htmlFor="location"
-              className="p-2 font-montserrat font-bold text-sm "
+              className="p-2 font-montserrat font-bold text-xs "
             >
               LOCATION
             </label>
             <input
-              className=" p-2 font-montserrat w-full "
+              className=" p-2 font-montserrat w-24 text-xs focus:outline-none "
               type="text"
               name="location"
               placeholder="Add location..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="px-4 border-r-4  border-y-4  flex flex-col ">
+          <div className="px-4 border-r-4 w-20 border-y-4  flex flex-col ">
             <div onClick={toggleModalGuests}>
               <label
                 htmlFor=""
-                className="py-2 font-montserrat font-bold text-sm "
+                className="py-2 font-montserrat font-bold text-xs "
               >
                 GUESTS
               </label>
-              <p className="font-montserrat text-gray-400 w-32 cursor-pointer py-2">
+              <p className="font-montserrat text-xs text-gray-400 w-32 cursor-pointer py-2">
                 Guests
               </p>
             </div>
@@ -69,8 +80,8 @@ export default function ModalAddParameters({ modal, onClose }) {
                 </div>
               </div>
               <div className="flex flex-col items-start justify-center gap-4 mt-10">
-                <p className="font-bold">Adults</p>
-                <p className="font-medium">Ages 13 or above</p>
+                <p className="font-bold">Children</p>
+                <p className="font-medium">Ages 2 - 12</p>
                 <div className="flex items-center gap-4">
                   <button
                     className="rounded-lg border-2  p-2 w-11 h-auto"
@@ -89,12 +100,13 @@ export default function ModalAddParameters({ modal, onClose }) {
               </div>
             </div>
           </div>
-          <div className=" px-4 border-r-4  border-y-4  flex items-center rounded-e-full bg-[#eb5757]  hover:bg-white [&>p]:hover:text-[#eb5757]  cursor-pointer
+          <div
+            className=" px-4 border-r-4  border-y-4  flex items-center rounded-e-full bg-[#eb5757] w-22  hover:bg-white [&>p]:hover:text-[#eb5757]  cursor-pointer
           "
-              onClick={onClose}
+            onClick={handleSubmit}
           >
-            <img className="" src="icons/searchicon.svg" alt="" />
-            <p className="text-white ">Search</p>
+            <img className="w-6" src="icons/searchicon.svg" alt="" />
+            <p className="text-white text-xs">Search</p>
           </div>
         </div>
       </div>
