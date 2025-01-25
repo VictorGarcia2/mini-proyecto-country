@@ -4,12 +4,14 @@ import CounterGuests from "./utils/CounterGuests";
 
 export default function ModalAddParameters({
   modal,
+  data,
   onClose,
   search,
   setSearch,
   handleSubmit,
   setCountGuest,
 }) {
+ console.log(data); 
   const [openAddGuests, setAddGuests] = useState(true);
   const toggleModalGuests = () => setAddGuests(!openAddGuests);
   const { countAdults, incrementAdults, decrementAdults } = CounterAdults();
@@ -42,6 +44,13 @@ export default function ModalAddParameters({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+            {data &&
+                data.map((location) => 
+            <div className=" z-30 flex gap-2 absolute mt-20 h-auto w-auto bg-white">
+                    <img className="w-5" src="icons/pin.svg" alt="" />
+                  <p>{location.city}</p>
+            </div>
+                  )}
           </div>
           <div className="px-4 border-r-4 w-20 border-y-4  flex flex-col ">
             <div onClick={toggleModalGuests}>
@@ -58,7 +67,7 @@ export default function ModalAddParameters({
             <div
               className={`flex flex-col items-center  absolute font-montserrat ${
                 openAddGuests && "hidden"
-              }  w-[10.1rem] pb-4 -mx-4 mt-20 border-2 bg-white shadow-md`}
+              }  w-[10.1rem] pb-4 -mx-4 mt-20  bg-white `}
             >
               <div className="flex flex-col items-start justify-center gap-4 mt-10">
                 <p className="font-bold">Adults</p>
