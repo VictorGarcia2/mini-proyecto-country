@@ -43,7 +43,7 @@ export default function ModalAddParameters({
               onChange={(e) => setSearch(e.target.value)}
             />
 
-            <div className="z-30 flex flex-col mt-20 px-6 -mx-6 gap-2 absolute w-auto bg-white">
+            <div className="z-30 flex flex-col mt-20 px-6 -mx-6 gap-2 absolute w-auto bg-white rounded-b-lg ">
               {data &&
                 [
                   ...new Set(
@@ -87,7 +87,7 @@ export default function ModalAddParameters({
             <div
               className={`flex flex-col items-center  absolute font-montserrat ${
                 openAddGuests && "hidden"
-              }  w-[10.1rem] pb-4 -mx-4 mt-20  bg-white `}
+              }  w-[10.1rem] pb-4 -mx-4 mt-20  bg-white rounded-b-lg `}
             >
               <div className="flex flex-col items-start justify-center gap-4 mt-10">
                 <p className="font-bold">Adults</p>
@@ -100,7 +100,7 @@ export default function ModalAddParameters({
                     -
                   </button>
                   <p>{countAdults}</p>
-                  
+
                   <button
                     className="rounded-lg border-2  p-2 w-11 h-auto"
                     onClick={incrementAdults}
