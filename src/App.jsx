@@ -20,7 +20,7 @@ function App() {
       });
   }, []);
   const [search, setSearch] = useState("");
-  const [countGuest, setCountGuest] = useState(undefined);
+  const [countGuest, setCountGuest] = useState(0);
   const [open, setOpen] = useState(true);
   const toggleModal = () => setOpen(!open); 
   const handleSubmit = () => {

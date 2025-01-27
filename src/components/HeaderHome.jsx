@@ -22,7 +22,7 @@ export default function HeaderHome({
         >
           <p className="">Add location</p>
           <p className="  border-x-[1px] w-3/6l p-4 ">
-            `{countGuest + " guests" && "Add guests"}`
+            `{countGuest + "guests" && "Add guests"}`
           </p>
           <img className="w-4" src="icons/searchicon.svg" alt="" />
         </div>

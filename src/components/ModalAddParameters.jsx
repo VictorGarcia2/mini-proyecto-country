@@ -10,8 +10,6 @@ export default function ModalAddParameters({
   handleSubmit,
   setCountGuest,
 }) {
-
-
   const [openAddGuests, setAddGuests] = useState(true);
   const toggleModalGuests = () => setAddGuests(!openAddGuests);
   const { countAdults, incrementAdults, decrementAdults } = CounterAdults();
@@ -47,10 +45,29 @@ export default function ModalAddParameters({
 
             <div className="z-30 flex flex-col mt-20 px-6 -mx-6 gap-2 absolute w-auto bg-white">
               {data &&
-                 [...new Set(data.map(location => location.city))].map((city, index) => (
-                  <div key={index} className="flex">
-                    <img className="w-5" src="icons/pin.svg" alt="" />
-                    <p className="">{city}</p>
+                [
+                  ...new Set(
+                    data
+                      .filter((location) =>
+                        location.city
+                          .toLowerCase()
+                          .includes(search.toLowerCase())
+                      )
+                      .map((location) => location.city)
+                  ),
+                ].map((city, index) => (
+                  <div key={index} className={` ${!search && "hidden"} flex`}>
+                    <img
+                      className="w-5"
+                      src="icons/pin.svg"
+                      alt="Icono de ubicación"
+                    />
+                    <p
+                      className="cursor-pointer"
+                      onClick={(e) => setSearch(e.target.textContent)}
+                    >
+                      {city}
+                    </p>{" "}
                   </div>
                 ))}
             </div>
@@ -63,7 +80,7 @@ export default function ModalAddParameters({
               >
                 GUESTS
               </label>
-              <p className="font-montserrat text-xs text-gray-400 w-32 cursor-pointer py-2">
+              <p className="font-montserrat text-xs text-gray-400 w-32 cursor-pointer py-4">
                 Guests
               </p>
             </div>

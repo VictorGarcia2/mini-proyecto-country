@@ -15,14 +15,12 @@ export default function Estancias({ newData, setData, search }) {
                 alt={location.title}
               />
               <div
-                className={` ${
-                  location.superHost && "gap-12"
-                } flex items-center justify-between px-6  w-full   pt-2`}
+                className={` ${location.superHost && "gap-12"}flex  items-center justify-between px-6   pt-2`}
               >
                 <p
                   className={`${
                     !location.superHost && "hidden"
-                  } border-[1px] border-gray-500 px-5 sm:px-3 sm:mx-7  py-1 text-xs font-montserrat rounded-full text-gray-500`}
+                  } border-[1px] border-gray-500 px-5 sm:px-3 sm:mx-7  w-28 py-1 text-xs font-montserrat rounded-full text-gray-500`}
                 >
                   SUPERHOST
                 </p>
