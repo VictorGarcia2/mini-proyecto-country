@@ -13,7 +13,7 @@ export default function Estancias({ newData }) {
                 alt={location.title}
               />
               <div className={`flex gap-10 items-center  pt-2`}>
-                <div className="inline-block  px-3">
+                <div className="  px-3">
                   <p
                     className={`${
                       !location.superHost && "hidden"
@@ -22,8 +22,8 @@ export default function Estancias({ newData }) {
                     SUPERHOST
                   </p>
                 </div>
-                <div>
-                <h3 className="font-thin w-full sm:px-0 text-gray-500 text-xs font-mulish ">
+                <div >
+                <h3 className=" font-thin  sm:px-0 text-gray-500 text-xs font-mulish ">
                   {location.type}. {location.beds} beds
                 </h3>
                 </div>

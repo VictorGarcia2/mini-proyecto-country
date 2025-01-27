@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CounterAdults from "./utils/CounterAdults";
 import CounterGuests from "./utils/CounterGuests";
 export default function ModalAddParameters({
+  searchData,
   open,
   data,
   onClose,
@@ -44,10 +45,10 @@ export default function ModalAddParameters({
             />
 
             <div className="z-30 flex flex-col mt-20 px-6 -mx-6 gap-2 absolute w-auto bg-white rounded-b-lg ">
-              {data &&
+              {searchData &&
                 [
                   ...new Set(
-                    data
+                    searchData
                       .filter((location) =>
                         location.city
                           .toLowerCase()
