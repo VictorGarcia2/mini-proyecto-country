@@ -4,9 +4,9 @@ export default function SubHeader({data}) {
   return (
     <>{
       data &&
-      data.slice(0, 1).map((location) => (
+      data.slice(0, 1).map((location, index) => (
         
-    <div className='flex justify-between w-full mt-9 items-center'>
+    <div key={index} className='flex justify-between w-full mt-9 items-center'>
       <h1 className=' text-3xl font-bold'> Stays in {location.city} </h1>
       <h2>{data.length}+ stays</h2>
     </div>

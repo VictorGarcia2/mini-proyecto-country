@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CounterAdults from "./utils/CounterAdults";
 import CounterGuests from "./utils/CounterGuests";
 export default function ModalAddParameters({
-  modal,
+  open,
   data,
   onClose,
   search,
@@ -14,11 +14,11 @@ export default function ModalAddParameters({
   const toggleModalGuests = () => setAddGuests(!openAddGuests);
   const { countAdults, incrementAdults, decrementAdults } = CounterAdults();
   const { countGuests, incrementGuests, decrementGuests } = CounterGuests();
-
-  setCountGuest(countGuests + countAdults);
-
+  useEffect(() => {
+    setCountGuest(countGuests + countAdults);
+  }, [countGuests, countAdults, setCountGuest]);
   return (
-    <div className={modal && "hidden"}>
+    <div className={open && "hidden"}>
       <div className="bg-white w-full fixed z-50 top-0 right-0 left-0 h-auto py-10 flex items-center justify-center">
         <p
           className="absolute top-6 right-14 text-3xl font-extrabold cursor-pointer"
@@ -81,7 +81,7 @@ export default function ModalAddParameters({
                 GUESTS
               </label>
               <p className="font-montserrat text-xs text-gray-400 w-32 cursor-pointer py-4">
-                Guests
+                {countGuests === 0? "Guests": countGuests + countAdults + " guests"   }
               </p>
             </div>
             <div

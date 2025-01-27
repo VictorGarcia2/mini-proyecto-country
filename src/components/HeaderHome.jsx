@@ -29,7 +29,7 @@ export default function HeaderHome({
       </div>
       <ModalAddParameters
         data={data}
-        modal={open}
+        open={open}
         onClose={toggleModal}
         search={search}
         setSearch={setSearch}

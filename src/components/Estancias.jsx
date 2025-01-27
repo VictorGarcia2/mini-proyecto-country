@@ -5,8 +5,8 @@ export default function Estancias({ newData }) {
     <>
       <div className="mt-9 grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {newData &&
-          newData?.map((location) => (
-            <div className=" flex flex-col mb-2 justify-center items-center align-top ">
+          newData?.map((location, index) => (
+            <div key={index} className=" flex flex-col mb-2 justify-center items-center align-top ">
               <img
                 className="rounded-3xl w-[350px] h-[238px] object-cover"
                 src={location.photo}
