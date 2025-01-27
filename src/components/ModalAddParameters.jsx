@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CounterAdults from "./utils/CounterAdults";
 import CounterGuests from "./utils/CounterGuests";
-
 export default function ModalAddParameters({
   modal,
   data,
@@ -11,7 +10,8 @@ export default function ModalAddParameters({
   handleSubmit,
   setCountGuest,
 }) {
- console.log(data); 
+
+
   const [openAddGuests, setAddGuests] = useState(true);
   const toggleModalGuests = () => setAddGuests(!openAddGuests);
   const { countAdults, incrementAdults, decrementAdults } = CounterAdults();
@@ -44,13 +44,16 @@ export default function ModalAddParameters({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            {data &&
-                data.map((location) => 
-            <div className=" z-30 flex gap-2 absolute mt-20 h-auto w-auto bg-white">
+
+            <div className="z-30 flex flex-col mt-20 px-6 -mx-6 gap-2 absolute w-auto bg-white">
+              {data &&
+                 [...new Set(data.map(location => location.city))].map((city, index) => (
+                  <div key={index} className="flex">
                     <img className="w-5" src="icons/pin.svg" alt="" />
-                  <p>{location.city}</p>
+                    <p className="">{city}</p>
+                  </div>
+                ))}
             </div>
-                  )}
           </div>
           <div className="px-4 border-r-4 w-20 border-y-4  flex flex-col ">
             <div onClick={toggleModalGuests}>

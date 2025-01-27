@@ -1,17 +1,14 @@
-import React, { useState } from "react";
 import ModalAddParameters from "./ModalAddParameters";
 
 export default function HeaderHome({
   data,
   toggleModal,
   open,
-  setOpen,
   search,
   setSearch,
   handleSubmit,
   countGuest,
   setCountGuest,
-  onClose,
 }) {
   return (
     <>
@@ -31,7 +28,7 @@ export default function HeaderHome({
         </div>
       </div>
       <ModalAddParameters
-         data={data}
+        data={data}
         modal={open}
         onClose={toggleModal}
         search={search}

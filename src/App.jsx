@@ -7,29 +7,33 @@ import "@fontsource-variable/mulish";
 import { fetchData } from "./Data/Fetch";
 function App() {
   const [data, setData] = useState([]);
+  const [originalData, setOriginalData] = useState([])
+ 
   useEffect(() => {
     fetchData("data.json")
-    .then((response) => {
-      setData(response)
-      ;})}, []);
-  const [newData, setNewData] = useState([]);
+      .then((response) => {
+        setData(response);
+        setOriginalData(response); 
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
   const [search, setSearch] = useState("");
-  const [countGuest, setCountGuest] = useState(0);
-  
+  const [countGuest, setCountGuest] = useState(undefined);
   const [open, setOpen] = useState(true);
-  const toggleModal = () => setOpen(!open);
-
- 
+  const toggleModal = () => setOpen(!open); 
   const handleSubmit = () => {
-    const filteredData = data.filter((location) => {
-    const conditionA = location.city
-        .toLowerCase()
-        .includes(search.toLowerCase());
-      const conditionB =  parseInt(countGuest) <= location.maxGuests
-      /* toggleModal(); */
-      return conditionA && conditionB
+    const filteredData = originalData.filter((location) => {
+      const conditionB = parseInt(countGuest) <= location.maxGuests;
+      const conditionA = location.city.toLowerCase().includes(search.toLowerCase())
+      toggleModal();
+      return conditionB && conditionA
     });
-    setNewData(filteredData);
+      setData(filteredData);
+      
+    
+
   };
 
   return (
@@ -46,11 +50,11 @@ function App() {
           search={search}
           setSearch={setSearch}
         />
-        <SubHeader data={newData} />
+        <SubHeader data={data} />
         <Estancias
           search={search}
           setSearch={setSearch}
-          data={newData}
+          newData={data}
           setData={setData}
         />
       </div>
