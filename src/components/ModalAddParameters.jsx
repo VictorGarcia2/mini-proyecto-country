@@ -81,7 +81,7 @@ export default function ModalAddParameters({
                 GUESTS
               </label>
               <p className="font-montserrat text-xs text-gray-400 w-32 cursor-pointer py-4">
-                {countGuests === 0? "Guests": countGuests + countAdults + " guests"   }
+                {countGuests === 0 && countAdults === 0 ? "Guests": countGuests + countAdults + " guests"   }
               </p>
             </div>
             <div
