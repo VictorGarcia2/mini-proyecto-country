@@ -20,9 +20,9 @@ export default function HeaderHome({
           className="cursor-pointer mx-auto sm:mx-0  border-zinc-200 rounded-2xl border-[1px] shadow-md shadow-zinc-300 flex gap-5 justify-center items-center w-80  text-zinc-300"
           onClick={toggleModal}
         >
-          <p className="">Add location</p>
+          <p className="">{search === ""? "Add Location": search   }</p>
           <p className="  border-x-[1px] w-3/6l p-4 ">
-            `{countGuest + "guests" && "Add guests"}`
+            `{countGuest === 0? "Add Guests": countGuest + " guests"   }`
           </p>
           <img className="w-4" src="icons/searchicon.svg" alt="" />
         </div>
