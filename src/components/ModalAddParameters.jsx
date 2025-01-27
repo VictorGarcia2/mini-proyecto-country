@@ -100,6 +100,7 @@ export default function ModalAddParameters({
                     -
                   </button>
                   <p>{countAdults}</p>
+                  
                   <button
                     className="rounded-lg border-2  p-2 w-11 h-auto"
                     onClick={incrementAdults}
