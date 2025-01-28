@@ -5,7 +5,8 @@
 Aplicación web para buscar y filtrar alojamientos según ciudad y número de huéspedes, con interfaz responsive.
 
 ## 🚀 Demo
-[Enlace a Demo] | [![Captura de pantalla]](ruta-imagen.jpg) <!-- Agrega tu media aquí -->
+https://windbnb-by-victor-garcia.netlify.app/ | ![image](https://github.com/user-attachments/assets/8d5e4b24-1299-4fc0-a58d-8a5a6abb296e)
+
 
 ## ✨ Características
 - Búsqueda dinámica de alojamientos por ciudad
