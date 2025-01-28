@@ -1,5 +1,4 @@
 import ModalAddParameters from "./ModalAddParameters";
-
 export default function HeaderHome({
   searchData,
   data,

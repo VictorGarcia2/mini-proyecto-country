@@ -17,7 +17,7 @@ export default function ModalAddParameters({
   const { countGuests, incrementGuests, decrementGuests } = CounterGuests();
   useEffect(() => {
     setCountGuest(countGuests + countAdults);
-  }, [countGuests, countAdults, setCountGuest]);
+  }, [countGuests, countAdults]);
   return (
     <div className={open && "hidden"}>
       <div className="bg-white w-full fixed z-50 top-0 right-0 left-0 h-auto py-10 flex items-center justify-center">
@@ -43,7 +43,6 @@ export default function ModalAddParameters({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-
             <div className="z-30 flex flex-col mt-20 px-6 -mx-6 gap-2 absolute w-auto bg-white rounded-b-lg ">
               {searchData &&
                 [
@@ -82,7 +81,9 @@ export default function ModalAddParameters({
                 GUESTS
               </label>
               <p className="font-montserrat text-xs text-gray-400 w-32 cursor-pointer py-4">
-                {countGuests === 0 && countAdults === 0 ? "Guests": countGuests + countAdults + " guests"   }
+                {countGuests === 0 && countAdults === 0
+                  ? "Guests"
+                  : countGuests + countAdults + " guests"}
               </p>
             </div>
             <div

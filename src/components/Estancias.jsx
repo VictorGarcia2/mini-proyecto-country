@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-
 export default function Estancias({ newData }) {
   return (
     <>
       <div className="mt-9 grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {newData &&
           newData?.map((location, index) => (
-            <div key={index} className=" flex flex-col mb-2 justify-center items-center align-top ">
+            <div
+              key={index}
+              className=" flex flex-col mb-2 justify-center items-center align-top "
+            >
               <img
                 className="rounded-3xl w-[350px] h-[238px] object-cover"
                 src={location.photo}
@@ -22,10 +23,10 @@ export default function Estancias({ newData }) {
                     SUPERHOST
                   </p>
                 </div>
-                <div >
-                <h3 className=" font-thin  sm:px-0 text-gray-500 text-xs font-mulish ">
-                  {location.type}. {location.beds} beds
-                </h3>
+                <div>
+                  <h3 className=" font-thin  sm:px-0 text-gray-500 text-xs font-mulish ">
+                    {location.type}. {location.beds} beds
+                  </h3>
                 </div>
                 <div className="flex">
                   <img className="w-4" src="icons/star.svg" alt="" />

@@ -5,11 +5,11 @@ import SubHeader from "./components/SubHeader";
 import "@fontsource-variable/montserrat";
 import "@fontsource-variable/mulish";
 import { fetchData } from "./Data/Fetch";
+import ErrorNotFound from "./components/ErrorNotFound";
 function App() {
   const [data, setData] = useState([]);
   const [originalData, setOriginalData] = useState([]);
   const [searchData, setSearchData] = useState([]);
-
   useEffect(() => {
     fetchData("data.json")
       .then((response) => {
@@ -37,7 +37,6 @@ function App() {
     console.log(filteredData);
     setData(filteredData);
   };
-
   return (
     <>
       <div className="flex flex-col items-center justify-center mx-auto p-5 md:w-11/12 lg:w-4/6">
@@ -54,12 +53,15 @@ function App() {
           setSearch={setSearch}
         />
         <SubHeader data={data} />
-        <Estancias
-          search={search}
-          setSearch={setSearch}
-          newData={data}
-          setData={setData}
-        />
+        {data.length > 0 && (
+          <Estancias
+            search={search}
+            setSearch={setSearch}
+            newData={data}
+            setData={setData}
+          />
+        )}
+        {data.length === 0 && <ErrorNotFound />}
       </div>
     </>
   );
